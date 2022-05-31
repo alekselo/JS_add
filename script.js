@@ -5,7 +5,7 @@ function lotOfLetters() {
     alert("Это не строка!");
   } else if (str.length > 30) {
     console.log(str.trim().slice(0, 30) + "...");
-  } else if (str.length < 30) {
+  } else {
     console.log(str.trim());
   }
 }
