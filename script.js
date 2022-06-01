@@ -1,28 +1,32 @@
 "use strict";
 
 // Первое дополнительное;
+let arr = [
+  "2364896",
+  "4456489",
+  "7564896",
+  "2956489",
+  "6704893",
+  "5564894",
+  "3564895",
+];
 
-let arr = [];
-
-for (let i = 0; i <= 6; i++) {
-  arr.push(prompt("Введите число"));
-}
-
-arr.forEach((item) => {
-  if (item.startsWith("2") || item.startsWith("4")) {
-    console.log(item);
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i].startsWith("2") || arr[i].startsWith("4")) {
+    console.log(arr[i]);
   }
-});
-
-console.log(arr);
+}
 
 // Второе дополнительное;
 
-let n = 100;
-
-check: for (let i = 2; i <= n; i++) {
-  for (let j = 2; j < i; j++) {
-    if (i % j == 0) continue check;
+for (let i = 1; i < 100; i++) {
+  let count = 0;
+  for (let j = 2; j <= i && count < 2; ++j) {
+    if (i % j == 0) {
+      count++;
+    }
   }
-  console.log(i + " делится на " + i + " и 1");
+  if (count < 2) {
+    console.log(i + " делится на " + i + " и 1");
+  }
 }
