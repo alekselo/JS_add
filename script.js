@@ -19,7 +19,7 @@ for (let i = 0; i < arr.length; i++) {
 
 // Второе дополнительное;
 
-for (let i = 1; i < 100; i++) {
+for (let i = 2; i < 100; i++) {
   let count = 0;
   for (let j = 2; j <= i && count < 2; ++j) {
     if (i % j == 0) {
