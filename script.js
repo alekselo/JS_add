@@ -1,32 +1,23 @@
 "use strict";
+const btn = document.getElementById("btn");
+const inputRange = document.querySelector("input[type = range]");
+const rangeSpan = document.getElementById("range-span");
+const inputText = document.querySelector("input[type=text]");
+const textSpan = document.getElementById("text-span");
+const square = document.getElementById("square");
+const circle = document.getElementById("circle");
+const eBtn = document.getElementById("e_btn");
 
-// Первое дополнительное;
-let arr = [
-  "2364896",
-  "4456489",
-  "7564896",
-  "2956489",
-  "6704893",
-  "5564894",
-  "3564895",
-];
+eBtn.style.display = "none";
 
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i].startsWith("2") || arr[i].startsWith("4")) {
-    console.log(arr[i]);
-  }
-}
+btn.addEventListener("click", function () {
+  let color = inputText.value;
+  square.style.backgroundColor = color;
+  inputText.value = "";
+});
 
-// Второе дополнительное;
-
-for (let i = 2; i < 100; i++) {
-  let count = 0;
-  for (let j = 2; j <= i && count < 2; ++j) {
-    if (i % j == 0) {
-      count++;
-    }
-  }
-  if (count < 2) {
-    console.log(i + " делится на " + i + " и 1");
-  }
-}
+inputRange.addEventListener("change", function () {
+  rangeSpan.textContent = inputRange.value;
+  circle.style.width = inputRange.value + "%";
+  circle.style.height = inputRange.value + "%";
+});
