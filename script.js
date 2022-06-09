@@ -10,14 +10,22 @@ const eBtn = document.getElementById("e_btn");
 
 eBtn.style.display = "none";
 
+inputRange.value = 75;
+rangeSpan.textContent = inputRange.value + " %";
+circle.style.width = inputRange.value + "%";
+circle.style.height = inputRange.value + "%";
+
+inputRange.addEventListener("mousemove", function () {
+  rangeSpan.textContent = inputRange.value + " %";
+});
+
+inputRange.addEventListener("change", function () {
+  circle.style.width = inputRange.value + "%";
+  circle.style.height = inputRange.value + "%";
+});
+
 btn.addEventListener("click", function () {
   let color = inputText.value;
   square.style.backgroundColor = color;
   inputText.value = "";
-});
-
-inputRange.addEventListener("change", function () {
-  rangeSpan.textContent = inputRange.value;
-  circle.style.width = inputRange.value + "%";
-  circle.style.height = inputRange.value + "%";
 });
