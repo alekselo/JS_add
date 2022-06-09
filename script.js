@@ -11,15 +11,10 @@ const eBtn = document.getElementById("e_btn");
 eBtn.style.display = "none";
 
 inputRange.value = 75;
-rangeSpan.textContent = inputRange.value + " %";
-circle.style.width = inputRange.value + "%";
-circle.style.height = inputRange.value + "%";
+rangeSpan.textContent = "75 %";
 
-inputRange.addEventListener("mousemove", function () {
+inputRange.addEventListener("input", function () {
   rangeSpan.textContent = inputRange.value + " %";
-});
-
-inputRange.addEventListener("change", function () {
   circle.style.width = inputRange.value + "%";
   circle.style.height = inputRange.value + "%";
 });
