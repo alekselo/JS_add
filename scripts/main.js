@@ -27,18 +27,18 @@ const greeting = (ruTime) => {
   }
 };
 
-const dayOfTheWeek = (toDay) => {
-  const arrWeek = [
-    "Воскресенье",
-    "Понедельник",
-    "Вторник",
-    "Среда",
-    "Четверг",
-    "Пятница",
-    "Суббота",
-  ];
-  return arrWeek[toDay];
-};
+// const dayOfTheWeek = (toDay) => {
+//   const arrWeek = [
+//     "Воскресенье",
+//     "Понедельник",
+//     "Вторник",
+//     "Среда",
+//     "Четверг",
+//     "Пятница",
+//     "Суббота",
+//   ];
+//   return arrWeek[toDay];
+// };
 const getNoun = (num) => {
   let n = Math.abs(num);
   n %= 100;
@@ -63,7 +63,9 @@ const times = () => {
   let timeToNewYear = Math.floor(
     (newYearTime.getTime() - date.getTime()) / 1000 / 60 / 60 / 24
   );
-  let dotw = dayOfTheWeek(toDay);
+  let dotw =
+    date.toLocaleDateString("ru", { weekday: "long" })[0].toUpperCase() +
+    date.toLocaleDateString("ru", { weekday: "long" }).slice(1);
   let sayHi = greeting(ruTime);
   let pronun = getNoun(timeToNewYear);
 
