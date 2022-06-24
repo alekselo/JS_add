@@ -1,6 +1,5 @@
 "use strict";
 
-const newYear = new Date("1 january 2023");
 const nowDate = new Date();
 const toDay = nowDate.getDay();
 const ruTime = nowDate.toLocaleTimeString("ru");
@@ -56,24 +55,28 @@ const getNoun = (num) => {
   return "дней";
 };
 const times = () => {
-  let newYear = new Date("1 january 2023");
   let date = new Date();
+  let year = date.getFullYear();
+  let newYear = String(year + 1);
+  let newYearTime = new Date(newYear);
   let enTime = date.toLocaleTimeString("en");
   let timeToNewYear = Math.floor(
-    (newYear.getTime() - nowDate.getTime()) / 1000 / 60 / 60 / 24
+    (newYearTime.getTime() - date.getTime()) / 1000 / 60 / 60 / 24
   );
-  let doft = dayOfTheWeek(toDay);
+  let dotw = dayOfTheWeek(toDay);
   let sayHi = greeting(ruTime);
   let pronun = getNoun(timeToNewYear);
-  return { enTime, doft, sayHi, pronun, timeToNewYear };
+
+  return { enTime, dotw, sayHi, pronun, timeToNewYear };
 };
 const printMessage = () => {
   let getTime = times();
   h1.textContent = getTime.sayHi;
-  p1.textContent = "Сегодня: " + getTime.doft + ".";
+  p1.textContent = "Сегодня: " + getTime.dotw + ".";
   p2.textContent = "Текущее время: " + getTime.enTime;
   p3.textContent =
     "До нового года осталось " + getTime.timeToNewYear + " " + getTime.pronun;
 };
+printMessage();
 
 setInterval(printMessage, 1000);
